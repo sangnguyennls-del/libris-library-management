@@ -1,0 +1,43 @@
+# Compiled class files
+*.class
+
+# Log files & dumps
+*.log
+hs_err_pid*
+replay_pid*
+
+# Package & Build artifacts
+target/
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDE & Editor files
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+
+# AI Agent / System Scratch files
+.gemini/
+.agents/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# SQLite Database Files
+*.db
+*.db-wal
+*.db-shm
+Libris.test.db
+
+# Cấu hình MySQL riêng của từng máy (chứa mật khẩu)
+src/main/resources/database.local.properties

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Báo cáo danh sách sách (JasperReports 7). Dữ liệu: JRBeanCollectionDataSource của List<Book> -->
+<jasperReport name="books" language="java" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<style name="Base" default="true" fontName="DejaVu Sans" fontSize="9.0"/>
+	<field name="bookCode" class="java.lang.String"/>
+	<field name="title" class="java.lang.String"/>
+	<field name="author" class="java.lang.String"/>
+	<field name="category" class="java.lang.String"/>
+	<field name="publisher" class="java.lang.String"/>
+	<field name="publishYear" class="java.lang.Integer"/>
+	<field name="bookStatus" class="java.lang.String"/>
+	<field name="rentalPrice" class="java.lang.Integer"/>
+	<title height="56">
+		<element kind="staticText" x="0" y="0" width="802" height="28" fontSize="18.0" bold="true" hTextAlign="Center" forecolor="#0F172A">
+			<text><![CDATA[DANH SÁCH SÁCH - LIBRIS]]></text>
+		</element>
+		<element kind="textField" x="0" y="30" width="802" height="18" hTextAlign="Center" forecolor="#64748B">
+			<expression><![CDATA["Ngày in: " + new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm").format(new java.util.Date())]]></expression>
+		</element>
+	</title>
+	<columnHeader height="22">
+		<element kind="staticText" mode="Opaque" x="0" y="0" width="60" height="22" backcolor="#E2E8F0" bold="true" vTextAlign="Middle"><text><![CDATA[Mã]]></text><box leftPadding="4"><pen lineWidth="0.5" lineColor="#94A3B8"/></box></element>
+		<element kind="staticText" mode="Opaque" x="60" y="0" width="210" height="22" backcolor="#E2E8F0" bold="true" vTextAlign="Middle"><text><![CDATA[Tên sách]]></text><box leftPadding="4"><pen lineWidth="0.5" lineColor="#94A3B8"/></box></element>
+		<element kind="staticText" mode="Opaque" x="270" y="0" width="140" height="22" backcolor="#E2E8F0" bold="true" vTextAlign="Middle"><text><![CDATA[Tác giả]]></text><box leftPadding="4"><pen lineWidth="0.5" lineColor="#94A3B8"/></box></element>
+		<element kind="staticText" mode="Opaque" x="410" y="0" width="110" height="22" backcolor="#E2E8F0" bold="true" vTextAlign="Middle"><text><![CDATA[Thể loại]]></text><box leftPadding="4"><pen lineWidth="0.5" lineColor="#94A3B8"/></box></element>
+		<element kind="staticText" mode="Opaque" x="520" y="0" width="100" height="22" backcolor="#E2E8F0" bold="true" vTextAlign="Middle"><text><![CDATA[NXB]]></text><box leftPadding="4"><pen lineWidth="0.5" lineColor="#94A3B8"/></box></element>
+		<element kind="staticText" mode="Opaque" x="620" y="0" width="45" height="22" backcolor="#E2E8F0" bold="true" hTextAlign="Center" vTextAlign="Middle"><text><![CDATA[Năm]]></text><box><pen lineWidth="0.5" lineColor="#94A3B8"/></box></element>
+		<element kind="staticText" mode="Opaque" x="665" y="0" width="70" height="22" backcolor="#E2E8F0" bold="true" hTextAlign="Center" vTextAlign="Middle"><text><![CDATA[Trạng thái]]></text><box><pen lineWidth="0.5" lineColor="#94A3B8"/></box></element>
+		<element kind="staticText" mode="Opaque" x="735" y="0" width="67" height="22" backcolor="#E2E8F0" bold="true" hTextAlign="Right" vTextAlign="Middle"><text><![CDATA[Giá thuê]]></text><box rightPadding="4"><pen lineWidth="0.5" lineColor="#94A3B8"/></box></element>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<element kind="textField" x="0" y="0" width="60" height="20" vTextAlign="Middle" textAdjust="ScaleFont"><expression><![CDATA[$F{bookCode}]]></expression><box leftPadding="4"><pen lineWidth="0.5" lineColor="#CBD5E1"/></box></element>
+			<element kind="textField" x="60" y="0" width="210" height="20" vTextAlign="Middle" textAdjust="ScaleFont"><expression><![CDATA[$F{title}]]></expression><box leftPadding="4"><pen lineWidth="0.5" lineColor="#CBD5E1"/></box></element>
+			<element kind="textField" x="270" y="0" width="140" height="20" vTextAlign="Middle" textAdjust="ScaleFont"><expression><![CDATA[$F{author}]]></expression><box leftPadding="4"><pen lineWidth="0.5" lineColor="#CBD5E1"/></box></element>
+			<element kind="textField" x="410" y="0" width="110" height="20" vTextAlign="Middle" textAdjust="ScaleFont"><expression><![CDATA[$F{category}]]></expression><box leftPadding="4"><pen lineWidth="0.5" lineColor="#CBD5E1"/></box></element>
+			<element kind="textField" x="520" y="0" width="100" height="20" vTextAlign="Middle" textAdjust="ScaleFont"><expression><![CDATA[$F{publisher}]]></expression><box leftPadding="4"><pen lineWidth="0.5" lineColor="#CBD5E1"/></box></element>
+			<element kind="textField" x="620" y="0" width="45" height="20" hTextAlign="Center" vTextAlign="Middle"><expression><![CDATA[$F{publishYear}]]></expression><box><pen lineWidth="0.5" lineColor="#CBD5E1"/></box></element>
+			<element kind="textField" x="665" y="0" width="70" height="20" hTextAlign="Center" vTextAlign="Middle"><expression><![CDATA["Available".equals($F{bookStatus}) ? "Sẵn có" : "Rented".equals($F{bookStatus}) ? "Đang thuê" : "Chờ duyệt"]]></expression><box><pen lineWidth="0.5" lineColor="#CBD5E1"/></box></element>
+			<element kind="textField" x="735" y="0" width="67" height="20" hTextAlign="Right" vTextAlign="Middle" pattern="#,##0"><expression><![CDATA[$F{rentalPrice}]]></expression><box rightPadding="4"><pen lineWidth="0.5" lineColor="#CBD5E1"/></box></element>
+		</band>
+	</detail>
+	<pageFooter height="20">
+		<element kind="textField" x="0" y="4" width="802" height="16" hTextAlign="Right" forecolor="#64748B"><expression><![CDATA["Trang " + $V{PAGE_NUMBER}]]></expression></element>
+	</pageFooter>
+	<summary height="24">
+		<element kind="textField" x="0" y="6" width="802" height="18" bold="true"><expression><![CDATA["Tổng số đầu sách: " + $V{REPORT_COUNT}]]></expression></element>
+	</summary>
+</jasperReport>
